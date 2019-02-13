@@ -1,4 +1,4 @@
-package pg_83;
+package pg_45;
 
 import java.util.Scanner;
 
@@ -6,41 +6,27 @@ public class Quest_11 {
 
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-        Scanner dado = new Scanner(System.in);
-        int i, num_termos, num1, num2, num3;
-        
-        System.out.print("Digite o número de termos da sequência: ");
-        num_termos = dado.nextInt();
-        i = 1;
-        num1 = 2;
-        num2 = 7;
-        num3 = 3;
-        if (i <= num_termos) {
-            System.out.print(num1 + " ");
-            i = i + 1;
-            if (i <= num_termos) {
-                System.out.print(num2 + " ");
-                i = i + 1;
-                if (i <= num_termos) {
-                    System.out.print(num3 + " ");
-                    i = i + 1;
-                }
-            }
+        int hI, mI, hF, mF, hD, mD;
+        System.out.println("Digite o horário inicial: ");
+        System.out.println("Horas: ");
+        hI = ler.nextInt();
+        System.out.println("Minutos: ");
+        mI = ler.nextInt();
+        System.out.println("Digite o horário final: ");
+        System.out.println("Horas: ");
+        hF = ler.nextInt();
+        System.out.println("Minutos: ");
+        mF = ler.nextInt();
+        if(mI > mF){
+            mF = mF + 60;
+            hF = hF - 1;
         }
-        while (i <= num_termos) {
-            num1 = num1 * 2;
-            System.out.print(num1 + " ");
-            i = i + 1;
-            if (i <= num_termos) {
-                num2 = num2 * 3;
-                System.out.print(num2 + " ");
-                i = i + 1;
-                if (i <= num_termos) {
-                    num3 = num3 * 4;
-                    System.out.print(num3 + " ");
-                    i = i + 1;
-                }
-            }
+        if(hI > hF){
+            hF = hF + 24;       
         }
+        mD = mF - mI;
+        hD = hF - hI;
+        System.out.println("O jogo durou: " +hD+ "h:" +mD+ "m");
     }
+    
 }
